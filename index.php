@@ -40,6 +40,8 @@
 	            </div>
 	        </nav>
 	    </div>
+		
+		<?php include_once("menu.inc"); ?>
 	
 
 	    <div id="introduction">
