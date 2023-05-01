@@ -11,6 +11,77 @@
  -->
  </head>
  <body>
+  <?php 
+   require_once"Settings.php";
+   $dbconn = @mysqli_connect($host, $user, $pwd,$sql_db);
+  if(dbconn)
+  {
+   $query = "SELECT * FROM eoi";
+   $result = mysqli_query($dbconn, #query);
+   if($result)
+   {
+   
+   }else
+   {
+   }
+  mysqli_close($dbconn);
+  }
+  ?>
+  
+  
+  <?php
+   class Result
+   {
+    public $idEOI;
+    public $numJOB;
+    public $txtFname;
+    public $txtLname;
+    public $txtBirthDate;
+    public $txtGender;
+    public $txtAddress;
+    public $txtState;
+    public $numPostcode;
+    public $txtEmail;
+    public $txtPhone;
+    public $txtSkills;
+    public $txtOtherSkills;
+    public $txtStatus;
+    
+    function set_details_job($idEOI, $numJOB, $txtStatus)
+    {
+     $this->idEOI = $idEOI;
+     $this->numJOB = $numJOB;
+    }
+    
+    function set_details_applicant($txtFname, $txtLname, $txtBirthDate, $txtGender)
+    {
+      $this->txtFname = $txtFname;
+      $this->txtLname = $txtLname;
+      $this->txtBirthDate = $txtBirthDate;
+      $this->txtGender = $txtGender;
+    }
+    
+    function set_details_contact($txtAddress, $txtState, $numPostcode, $txtEmail, $txtPhone)
+    {
+      $this->txtAddress = $txtAddress;
+      $this->txtState = $txtState;
+      $this->numPostcode = $numPostcode;
+      $this->txtEmail = $txtEmail;
+      $this->txtPhone = $txtPhone;
+    }
+    
+    function set_details_skills ($txtSkills, $txtOtherSkills)
+    {
+      $this->txtSkills = $txtSkills;
+      $this->txtOtherSkills = $txtOtherSkills;
+    }
+    
+    function display_applicant()
+    {
+     
+    }
+   }
+  ?>
  
  </body>
 </html>
