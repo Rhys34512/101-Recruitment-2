@@ -1,5 +1,5 @@
 <html>
- <head>
+    <head>
 <!-- 
  Create a web page manage.php that allows a manager to make the following queries of
  the eoi table and returns a web page with the appropriate results.
@@ -12,18 +12,31 @@
  </head>
  <body>
   <?php 
-   require_once"Settings.php";
-   $dbconn = @mysqli_connect($host, $user, $pwd,$sql_db);
-  if(dbconn)
-  {
-   $query = "SELECT * FROM eoi";
-   $result = mysqli_query($dbconn, #query);
-   if($result)
-   {
-   
-   }else
-   {
-   }
+    require_once"Settings.php";
+    $dbconn = @mysqli_connect($host, $user, $pwd,$sql_db);
+    if(dbconn)
+    {
+        $query = "SELECT * FROM eoi";
+        $result = mysqli_query($dbconn, $query);
+        if($result)
+        {
+            $record = mysqli_fetch_assoc($results);
+            if($record)
+            {
+                echo "<p>At least 1 record retrieved</p>";
+                
+                echo "<p> $idEOI: " $record['idEOI'] ", $numJOB, $txtFname, $txtLname, $txtBirthDate, $txtGender, $txtAddress, $txtState, $numPostcode, $txtEmail, $txtPhone, $txtSkills, $txtOtherSkills, $txtStatus;
+    
+            }
+            else
+            {
+                echo "<p>No records retrieved</p>";
+            }
+        }
+        else
+    {
+    echo "<p>MySQL operation unsuccessful</p>"; 
+  }
   mysqli_close($dbconn);
   }
   ?>
