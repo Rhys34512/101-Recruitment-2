@@ -40,7 +40,7 @@
   <div class="sec">
     <!--starting of the div classified as "sec" to section out the content of the page, so in CSS, styling can be done easier-->
     <h2 class="h2">Job Application</h2><!--Title of the page-->
-    <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+    <form action="processEOI.php" method="post">
       <!--Link provided for the form is where the data collected from the form will be returned and echoed back the user.-->
       <fieldset>
         <legend>Job Type</legend>
