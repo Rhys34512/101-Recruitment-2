@@ -16,15 +16,6 @@ $State = $_POST["State"];
 $email = $_POST["email"];
 $Phone_Number = $_POST["Phone_Number"];
 $Skills = $_POST["Skills"];
-    $query = "insert into form(reference number,first name, last name, date of birth, gender, street address, suburb/town, postcode, state, email, phone number, skills) values('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address', '$Suburb_Town', '$Postcode', '$State', '$email', '$Phone_Number', '$Skills')";
-    $run = mysqli_query($conn,$query) or die(mysqli_error());
-    if($run){
-        echo "Form submitted successfully";
-    }
-}
-else{
-    echo "all fields required";
-}
 }
 ?>
 <?php
