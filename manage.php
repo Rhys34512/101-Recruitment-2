@@ -25,7 +25,7 @@
             {
                 echo "<p>At least 1 record retrieved</p>";
                 
-                echo "<p> $idEOI: " $record['idEOI'] ", $numJOB, $txtFname, $txtLname, $txtBirthDate, $txtGender, $txtAddress, $txtState, $numPostcode, $txtEmail, $txtPhone, $txtSkills, $txtOtherSkills, $txtStatus;
+                echo "<p> $idEOI: " $record['idEOI'] ", $numJOB: " $record['numJOB'] ", $txtFname: " $record['txtFname'] ", $txtLname: " $record['txtLname'] ", $txtBirthDate: " $record['txtBirthDate'] ", $txtGender: " $record['$txtGender'] ", $txtAddress: " $record['txtAddress'] ", $txtState: " $record['txtState'] ", $numPostcode: " $record['numPostcode'] ", $txtEmail: " $record['txtEmail'] ", $txtPhone: " $record['txtPhone'] ", $txtSkills: " $record['txtSkills'] ", $txtOtherSkills: " $record['txtOtherSkills'] ", $txtStatus: " $record['txtStatus'];
     
             }
             else
@@ -34,10 +34,11 @@
             }
         }
         else
-    {
-    echo "<p>MySQL operation unsuccessful</p>"; 
-  }
-  mysqli_close($dbconn);
+        {
+            echo "<p>MySQL operation unsuccessful</p>"; 
+        }
+     }
+     mysqli_close($dbconn);
   }
   ?>
   
