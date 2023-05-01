@@ -10,33 +10,9 @@
   <title>Submit Application | 101 Recruitment</title>
 </head><!-- Container to hold the navidgation bar-->
 <body>
-  <div id="container">
-    <nav>
-      <div class="navigation">
-        <a href="index.html" title="Return to Homepage"><img src="images/logo.png" class="logo" alt="101 IT Company Logo"></a>
-        <ul class="navigation">
-          <li class="nav">
-            <a href="index.html" class="link">Home</a>
-          </li>
-          <li class="nav">
-            <a href="jobs.html" class="link">Job Openings</a>
-          </li>
-          <li class="nav">
-            <a href="apply.html" class="link">Submit Application</a>
-          </li>
-          <li class="nav">
-            <a href="services.html" class="link">Services</a>
-          </li>
-          <li class="nav">
-            <a href="enhancements.html" class="link">Enhancements</a>
-          </li>
-          <li class="nav">
-            <a href="about.html" class="link">About Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  
+  <?php include_once("menu.inc"); ?>
+  
   <div class="sec">
     <!--starting of the div classified as "sec" to section out the content of the page, so in CSS, styling can be done easier-->
     <h2 class="h2">Job Application</h2><!--Title of the page-->
@@ -132,46 +108,8 @@
   <!-- this the footer which will be at the bottom of the page which is broken into 4 divs, main including company logo,
 links for the different pages within the website,
 location of our headquaters and our socials -->
-  <footer>
-    <div id="footer-main">
-      <img src="images/logodarkmode.png" title="Company Logo" width="115" height="65" id="footer-logo" alt="logodarkmode">
-      <p class="footer-sub">Proudly delivering unique and industry-leading solutions to companies around the world.</p>
-    </div>
-    <div id="footer-links">
-      <p class="footer-section-title">Links</p>
-      <ul id="footer-nav">
-        <li>
-          <a href="index.html" class="footer-nav-link">Home</a>
-        </li>
-        <li>
-          <a href="jobs.html" class="footer-nav-link">Job Openings</a>
-        </li>
-        <li>
-          <a href="apply.html" class="footer-nav-link">Submit Application</a>
-        </li>
-        <li>
-          <a href="services.html" class="footer-nav-link">Services</a>
-        </li>
-        <li>
-          <a href="enhancements.html" class="footer-nav-link">Enhancements</a>
-        </li>
-        <li>
-          <a href="about.html" class="footer-nav-link">About Us</a>
-        </li>
-      </ul>
-    </div>
-    <div id="footer-location">
-      <p class="footer-section-title">Our Location</p>
-      <p class="footer-location-body">Swing by our office:</p>
-      <p class="footer-location-body">427-451 Burwood Rd, Hawthorn, VIC 3122, Australia</p>
-    </div>
-    <div id="footer-socials">
-      <p class="footer-section-title">Check out our Socials</p>
-      <div id="social-icon-group">
-        <a href="https://facebook.com/101-Recruitment"><img src="images/facebook.png" class="social-icon" title="Facebook" alt="facebook"></a> <a href="https://twitter.com/101-Recruitment"><img src="images/twitter.png" class="social-icon" title="Twitter" alt="twitter"></a> <a href="https://instagram.com/101-Recruitment"><img src="images/instagram.png" class="social-icon" title="Instagram" alt="instagram"></a> <a href="https://youtube.com/101-Recruitment"><img src="images/youtube.png" class="social-icon" title="YouTube" alt="youtube"></a>
-      </div>
-    </div>
-    <p id="footer-sub-copy">Copyright © 2023 101 IT. All rights reserved.</p>
-  </footer>
+  
+  <?php include_once("footer.inc"); ?>
+  
 </body>
 </html>
