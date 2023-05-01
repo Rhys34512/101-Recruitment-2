@@ -2,7 +2,7 @@
 include ("settings.php")
 ?>
 <?php
-   if($conn){
+   $conn
 if(isset($_POST['Submit'])){
     if(!empty($_POST['Reference_Number']) && !empty($_POST['First_Name']) && !empty($_POST['Last_Name']) && !empty($_POST['Date_of_Birth']) && !empty($_POST['Gender']) && !empty($_POST['Street_Address']) && !empty($_POST['Suburb_Town']) && !empty($_POST['Postcode']) && !empty($_POST['State']) && !empty($_POST['email']) && !empty($_POST['Phone_Number']) && !empty($_POST['Skills'])){
 $Reference_Number = $_POST["Reference_Number"];
