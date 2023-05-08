@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Application Confirmation</title>
+	<meta charset="utf-8"/>
+	<meta name="description" content="Echo from data entered"/>
+	<meta name="author" content="Tafadzwa Mudavanhu"/>
+</head>
+<body>
+    <h1>Job Application Confrimation</h1>
 
 <?php 
 require_once ('settings.php');
@@ -5,7 +15,10 @@ $conn = @mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+if(!isset($_SERVER['HTTP_REFERER'])){
+    header('Location: apply.php');
+    exit;
+}
 $Reference_Number = $_POST["Reference_Number"];
 $First_Name = $_POST["First_Name"];
 $Last_Name = $_POST["Last_Name"];
@@ -19,6 +32,8 @@ $email = $_POST["email"];
 $Phone_Number = $_POST["Phone_Number"];
 $Skills = $_POST["Skills"];
 $other = $_POST["other"];
+$link = "apply.php";
+
 
 echo "<table border='1'>
 <tr>
@@ -56,54 +71,70 @@ echo "<table border='1'>
 <?php
 if(isset ($_POST["Reference_Number"])){
     $Reference_Number = $_POST["Reference_Number"];
+    $Reference_Number = sanitise_input($Reference_Number);
 }
 if(isset ($_POST["First_Name"])){
     $First_Name = $_POST["First_Name"];
+    $First_Name = sanitise_input($First_Name);
 }
 if(isset ($_POST["Last_Name"])){
     $Last_Name = $_POST["Last_Name"];
+    $Last_Name = sanitise_input($Last_Name);
 }
 if(isset ($_POST["Date_of_Birth"])){
     $Date_of_Birth = $_POST["Date_of_Birth"];
+    $Date_of_Birth = sanitise_input($Date_of_Birth);
 }
 if(isset ($_POST["Gender"])){
     $Gender = $_POST["Gender"];
+    $Gender = sanitise_input($Gender);
 }
 if(isset ($_POST["Street_Address"])){
     $Street_Address = $_POST["Street_Address"];
+    $Street_Address = sanitise_input($Street_Address);
 }
 if(isset ($_POST["Suburb_Town"])){
     $Suburb_Town = $_POST["Suburb_Town"];
+    $Suburb_Town = sanitise_input($Suburb_Town);
 }
 if(isset ($_POST["Postcode"])){
     $Postcode = $_POST["Postcode"];
+    $Postcode = sanitise_input($Postcode);
 }
 if(isset ($_POST["State"])){
     $State = $_POST["State"];
+    $State = sanitise_input($State);
 }
 if(isset ($_POST["email"])){
     $email = $_POST["email"];
+    $email = sanitise_input($email);
 }
 if(isset ($_POST["Phone_Number"])){
     $Phone_Number = $_POST["Phone_Number"];
+    $Phone_Number = sanitise_input($Phone_Number);
 }
 if(isset ($_POST["Skills"])){
     $Skills = $_POST["Skills"];
+    $Skills = sanitise_input($Skills);
     
 }
-?>
-<?php
 $valid_postcodes = array(
     "NSW" => range(2000, 2999),
-    "VIC" => range(3000, 3999),
+    "VIC" => range(3000, 3999), 
     "QLD" => range(4000, 4999),
     "SA" => range(5000, 5999),
     "WA" => range(6000, 6999),
     "TAS" => range(7000, 7999),
     "NT" => range("0800", "0999")
 );
-  
-
+function sanitise_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+$startdate ='2008-01-01';
+$enddate = '1943-01-01';
 $errMsg = "";
 if ($Reference_Number=="") {
     $errMsg .= "<p>You must enter the Reference Number.</p>";
@@ -132,6 +163,10 @@ else if (!preg_match("/^[a-zA-Z]*$/",$Last_Name)) {
 }
 if ($Date_of_Birth==""){
     $errMsg .= "<p>You must enter your Date of Birth</p>";
+}
+if ($Date_of_Birth >= $startdate && $Date_of_Birth <= $enddate){
+} else{
+    $errMsg .= "<p>You dont meet the age requirements for the Jobs</p>";
 }
 if ($Gender==""){
     $errMsg .= "<p>You must select a Gender</p>";
@@ -182,7 +217,8 @@ if (isset($_POST['Skills']) && $_POST['Skills'] == 'Other Skills' && empty($_POS
     $errMsg .= "<p>The Postcode entered does not match the selected State</p>";
 }
 if ($errMsg != ""){
-	echo "<p>$errMsg</p>";}else{
+	echo "<p>$errMsg</p>";
+    echo "<p>Please return to the <a href='$link'>Apply Page</a></p>";}else{
         $Reference_Number = mysqli_real_escape_string($conn, $_POST['Reference_Number']);
         $First_Name = mysqli_real_escape_string($conn, $_POST['First_Name']);
         $Last_Name = mysqli_real_escape_string($conn, $_POST['Last_Name']);
@@ -197,7 +233,7 @@ if ($errMsg != ""){
         $Skills = mysqli_real_escape_string($conn, $_POST['Skills']);
         $other = mysqli_real_escape_string($conn, $_POST['other']);
         
-        $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other')";
+        $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other')";
         if (mysqli_query($conn, $sql)) {
             echo "Data inserted successfully!";
         } else {
@@ -205,3 +241,5 @@ if ($errMsg != ""){
         }}
 
 ?>
+</body>
+</html>
