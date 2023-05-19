@@ -1,8 +1,6 @@
 
 <!DOCTYPE html>
 
-
-	<!DOCTYPE html>
 	<html lang="en">
 	<head>
 	    <meta charset="UTF-8">
@@ -54,7 +52,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
-            	header("Location: home.php");
+            	header("Location: manage.php");
 		        exit();
             }else{
 				header("Location: login.php?error=Incorect User name or password");
@@ -69,4 +67,4 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 }else{
 	header("Location: login.php");
 	exit();
-}
+} 
