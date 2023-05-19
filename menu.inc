@@ -22,6 +22,9 @@ echo '<div id="container">
                             <li class="nav">
                                 <a href="about.php" class="link">About Us</a>
                             </li>
+                            <li class="nav">
+                                <a href="login.php" class="link">Manager</a>
+                            </li>							
                          </ul>
                     </div>
                 </nav>
