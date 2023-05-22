@@ -82,6 +82,8 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
         <div style="float:left;margin-right:20px;">
           <label for="email">Email <input type="text" id="email" name="email" size="40" placeholder="name@domain.com" pattern="^.+@.+\..{2,3}$" required="required"></label>
         </div>&nbsp;&nbsp; <!--Email will use a placeholder to allow users to see what format is expecte to be entered, pattern is also used to make sure users enter the expected input-->
