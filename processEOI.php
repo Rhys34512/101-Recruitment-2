@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="description" content="Echo from data entered">
     <meta name="author" content="Tafadzwa Mudavanhu">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 <?php include_once("menu.inc"); ?>
