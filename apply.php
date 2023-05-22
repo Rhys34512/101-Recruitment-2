@@ -27,7 +27,7 @@
           <label for="firstname">First Name <input type="text" id="firstname" name="First_Name" size="40" pattern="^[a-zA-Z]+$" required="required"></label>
         </div>&nbsp;&nbsp;&nbsp;
         <div style="float:left;">
-          <label for="lastname">Last Name <input type="text" id="lastname" name="Last_Name" pattern="^[a-zA-Z]+$" maxlength="20" required="required"></label>
+          <label for="lastname">Last Name <input type="text" id="lastname" name="Last_Name" size="40" pattern="^[a-zA-Z]+$" required="required"></label>
         </div><br>
         <br>
         <br>
@@ -86,7 +86,7 @@
           <label for="email">Email <input type="text" id="email" name="email" size="40" placeholder="name@domain.com" pattern="^.+@.+\..{2,3}$" required="required"></label>
         </div>&nbsp;&nbsp; <!--Email will use a placeholder to allow users to see what format is expecte to be entered, pattern is also used to make sure users enter the expected input-->
         <div style="float:left;">
-          <label for="phone_number">Phone Number <input type="text" id="phone_number" name="Phone_Number" size="30" maxlength="12" pattern="[0-9\s]+" required="required"></label>
+          <label for="phone_number">Phone Number <input type="text" id="phone_number" name="Phone_Number" size="30" pattern="[0-9\s]+" required="required"></label>
         </div><!--Phone Number will allow input data of numbers and spaces, with the max length of 12 characters -->
       </fieldset>
       <hr>
