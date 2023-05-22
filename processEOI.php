@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php include_once("menu.inc"); ?>
     <h1 class='h2'>Job Application Confirmation</h1>
     <div class="sec">
     <?php
@@ -229,6 +230,7 @@ if ($errMsg != "") {
 }
 ?>
 </div>
+<?php include_once("footer.inc"); ?>
 </body>
 </html>
 
