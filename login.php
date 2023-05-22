@@ -35,14 +35,19 @@
 
 
 
-      <div id="submission">
+  
+        
+		<div id="submission">
         <p id="enhancement1">
-        <label for="submit"><input type="submit" id="submit" value="Login">
+        <label for="submit"><input type="submit" id="submit2" value="Login">
      	</label>&nbsp;
-        <a href="signup.php" class="ca">Create an account</a>
+		</div>
+		
+		<div id="submission2">
+        <a href="signup.php" class="ca">Create an Account</a>
         </p>
-        
-        
+		
+		</div>        
         
  
           
