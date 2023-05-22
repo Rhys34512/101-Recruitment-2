@@ -27,6 +27,22 @@ echo '<footer>
 	                    </li>
 	                 </ul>
 	        </div>
+			<div id="footer-links-extended">
+	                <ul id="footer-nav-extended">
+			    <li>
+	                        <a href="faq.php" class="footer-nav-link">FAQ</a>
+	                    </li>
+			    <li>
+	                        <a href="careers.php" class="footer-nav-link">Careers Portal</a>
+	                    </li>
+	                    <li>
+	                        <a href="enhancements2.php" class="footer-nav-link">Enhancements 2</a>
+	                    </li>
+	                    <li>
+	                        <a href="login.php" class="footer-nav-link">Manager Login</a>
+	                    </li>
+	                 </ul>
+	        </div>
 	        <div id="footer-location">
 	            <p class="footer-section-title">Our Location</p>
 	            <p class="footer-location-body">Swing by our office:</p>
