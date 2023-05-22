@@ -75,7 +75,7 @@
 		
 		<div id="submission">
         <p id="enhancement1">
-        <label for="submit"><input type="submit" id="submit" value="Login">
+        <label for="submit"><input type="submit" id="submit" value="Sign Up">
      	</label>&nbsp;
         <a href="login.php" class="ca">Already have an Account?</a>
         </p>
