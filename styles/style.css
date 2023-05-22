@@ -669,6 +669,7 @@ height: 300px;
   font-size: 14px;
   background-color: #ffffff;
   margin-right: 5px;
+
 }
 /*cursor pointer will indicate a link, and a transition of 0.3 seconds ease out of the original colours when hovered over. */
 
@@ -792,10 +793,37 @@ fieldset {
   }
 
 
-
   .form-container2 label {
     margin-right: 10px;
-  }
+  }  
+  
+   
+  
+  
+ #submit2 {
+  cursor: pointer;
+	width: 80px;
+    height: 35px;
+  border: 1.5px solid #18acf7;
+  color: #18acf7;
+  transition: 0.3s ease-in-out;
+  font-size: 14px;
+  background-color: #ffffff;
+  margin: auto;
+  display: block;
+}
+/*cursor pointer will indicate a link, and a transition of 0.3 seconds ease out of the original colours when hovered over. */
+
+#submit2:hover {
+  color: #ffffff;
+  background-color: #18acf7;
+} 
+  
+  
+  
+  
+  
+  
   
   
   
@@ -1071,32 +1099,3 @@ td{
 	font-style: normal;
 }
 /*the font weight and style will be styled as normal*/
-
-li#nav-login {
-    display: inline;
-    margin-left: 350px;
-    margin-top: 33px;
-}
-
-#footer-nav-extended {
-   list-style-type: none; 
-   margin-left: 0px;
-   padding-left: 5px;
-}
-
-#footer-links-extended {
-    width: 120px;
-    display: inline-block;
-    position: relative;
-	padding-left: 0px;
-}
-
-.careers-table, .careers-td, .careers-th {
-  border: 1px solid;
-}
-
-.careers-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
