@@ -1,139 +1,248 @@
-<!--Standard Meta Tags-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Page for application to job">
-  <meta name="keywords" content="Apply, Application, Job Application">
-  <meta name="author" content="Tafadzwa Mudavanhu">
-  <link rel="stylesheet" href="styles/style.css">
-  <title>Submit Application | 101 Recruitment</title>
-</head><!-- Container to hold the navidgation bar-->
+    <title>Application Confirmation</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Echo from data entered"/>
+    <meta name="author" content="Tafadzwa Mudavanhu"/>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 <body>
 <?php include_once("menu.inc"); ?>
-  <div class="sec">
-    <!--starting of the div classified as "sec" to section out the content of the page, so in CSS, styling can be done easier-->
-    <h2 class="h2">Job Application</h2><!--Title of the page-->
-    <form action="processEOI.php" method="post" novalidate="novalidate">
-      <!--Link provided for the form is where the data collected from the form will be returned and echoed back the user.-->
-      <fieldset>
-        <legend>Job Type</legend>
-        <p><label for="referencenumber">Job Reference Number <input type="text" id="referencenumber" name="Reference_Number" size="35" pattern="[A-Za-z0-9]+" required="required"></label></p><!--Job Reference Number Label were the user will only be able to enter a maxmimum amount of 5 Alphanumeric Characters-->
-      </fieldset><!--Using fieldset to seperate different sections on the form-->
-      <hr>
-      <fieldset>
-        <legend>Personal Details</legend><br>
-        <div style="float:left;margin-right:20px;">
-          <label for="firstname">First Name <input type="text" id="firstname" name="First_Name" size="40" pattern="^[a-zA-Z]+$" required="required"></label>
-        </div>&nbsp;&nbsp;&nbsp;
-        <div style="float:left;">
-          <label for="lastname">Last Name <input type="text" id="lastname" name="Last_Name" size="40" pattern="^[a-zA-Z]+$" required="required"></label>
-        </div><br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!--First Name and Last Name labels placed next to each other using float and margin functions, which will only allow alphabetic characters to be input at max length of 20-->
-        <p><label for="dateofbirth">Date of Birth <input type="date" id="dateofbirth" name="Date_of_Birth" required="required"></label></p><!--Date of Birth label will use the input type "Date" user can enter date using calendar.-->
-      </fieldset>
-      <hr>
-      <!--hr also being used as a seperator between the different sections of the form-->
-      <fieldset>
-        <legend>Gender</legend><br>
-        <label for="Male"><input type="radio" id="Male" name="Gender" value="Male"> Male</label>&nbsp;&nbsp;<label for="Female"><input type="radio" id="Female" name="Gender" value="Female">Female</label>&nbsp;&nbsp;<label for="Other"><input type="radio" id="Other" name="Gender" value="Other" required="required">Other</label> <!--Gender label function will display a radio input type, if no input entered alert will appear asking user to enter an input-->
-      </fieldset>
-      <hr>
-      <fieldset>
-        <legend>Contact Details</legend><br>
-        <label for="Street_Address">Street Address <input type="text" id="Street_Address" name="Street_Address" size="40" required="required"></label><br>
-        <p><label for="suburb/town">Suburb/town <input type="text" id="suburb/town" name="Suburb_Town" size="40" required="required"></label></p>
-        <div style="float:left;margin-right:20px;">
-          <label for="postcode">Postcode <input type="text" id="postcode" name="Postcode" pattern="[0-9-]+" required="required"></label>
-        </div>&nbsp;&nbsp;
-        <div style="float:left;">
-          <label for="State">State</label> <select name="State" id="State">
-            <option value="VIC">
-              VIC
-            </option>
-            <option value="NSW">
-              NSW
-            </option>
-            <option value="QLD">
-              QLD
-            </option>
-            <option value="NT">
-              NT
-            </option>
-            <option value="WA">
-              WA
-            </option>
-            <option value="SA">
-              SA
-            </option>
-            <option value="TAS">
-              TAS
-            </option>
-            <option value="ACT">
-              ACT
-            </option>
-          </select>
-        </div><!--For the State select function will be used-->
-        <br>
-        <br>
-        <br>
-        <br>
-        <div style="float:left;margin-right:20px;">
-          <label for="email">Email <input type="text" id="email" name="email" size="40" placeholder="name@domain.com" pattern="^.+@.+\..{2,3}$" required="required"></label>
-        </div>&nbsp;&nbsp; <!--Email will use a placeholder to allow users to see what format is expecte to be entered, pattern is also used to make sure users enter the expected input-->
-        <div style="float:left;">
-          <label for="phone_number">Phone Number <input type="text" id="phone_number" name="Phone_Number" size="30" pattern="[0-9\s]+" required="required"></label>
-        </div><!--Phone Number will allow input data of numbers and spaces, with the max length of 12 characters -->
-      </fieldset>
-      <hr>
-      <fieldset id='Skills'>
-        <legend>Skill List</legend><br>
-        <label for="Html"><input type="checkbox" id="Html" name="Skills[]" value="Html" checked>HTML</label> <label for="javascript"><input type="checkbox" id="javascript" name="Skills[]" value="JavaScript">JavaScript</label> <label for="css"><input type="checkbox" id="css" name="Skills[]" value="CSS">CSS</label> <label for="XML"><input type="checkbox" id="XML" name="Skills[]" value="XML">XML</label> <label for="PHP"><input type="checkbox" id="PHP" name="Skills[]" value="PHP">PHP</label> <label for="MySQL"><input type="checkbox" id="MySQL" name="Skills[]" value="MySQL">MySQL</label> <label for="otherskills"><input type="checkbox" id="otherskills" name="Skills[]" value="Other Skills">Other Skills</label>
-        <p><label for="textarea">Other Skills<br>
-        <textarea placeholder="Please enter other skills...." id="textarea" name="other" rows="10" cols="50"></textarea></label></p><!--Skill list will use input type a checkbox where different options will be available for selection. Textarea also used for the "other skills" using a placeholder to inform users that they can type inside.-->
-      </fieldset>
-      <hr>
-      <div id="submission">
-        <p id="enhancement1"><label for="submit"><input type="submit" id="submit" name="submit" value="Apply"></label>&nbsp;<label for="reset"><input type="reset" id="reset" value="Reset"></label></p><!--Submit button which will allow users to submit their data, if every required data box is filled out with expected input, if not they will be notified to make changes. The data will then be returned to them and echoed on the PHP page.
-    The reset button will just clear all of the data that has been input.-->
-      </div>
-    </form><!--Ending of the form-->
-  </div><!--Ending of the div-->
-  <!-- this the footer which will be at the bottom of the page which is broken into 4 divs, main including company logo,
-links for the different pages within the website,
-location of our headquaters and our socials -->
-  <footer>
-    <div id="footer-main">
-      <img src="images/logodarkmode.png" title="Company Logo" width="115" height="65" id="footer-logo" alt="logodarkmode">
-      <p class="footer-sub">Proudly delivering unique and industry-leading solutions to companies around the world.</p>
-    </div>
-    <div id="footer-links">
-      <p class="footer-section-title">Links</p>
-      <ul id="footer-nav">
-        <li>
-          <a href="index.html" class="footer-nav-link">Home</a>
-        </li>
-        <li>
-          <a href="jobs.html" class="footer-nav-link">Job Openings</a>
-        </li>
-        <li>
-          <a href="apply.html" class="footer-nav-link">Submit Application</a>
-        </li>
-        <li>
-          <a href="services.html" class="footer-nav-link">Services</a>
-        </li>
-        <li>
-          <a href="enhancements.html" class="footer-nav-link">Enhancements</a>
-        </li>
-        <li>
-          <a href="about.html" class="footer-nav-link">About Us</a>
-        </li>
-      </ul>
-    </div>
-  <?php include_once("footer.inc"); ?>
+    <h1 class='h2'>Job Application Confirmation</h1>
+    <div class="sec">
+    <?php
+$Skills = "";
+require_once('settings.php');
+$conn = @mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+if (!isset($_SERVER['HTTP_REFERER'])) {
+    header('Location: apply.php');
+    exit;
+}
+$Reference_Number = $_POST["Reference_Number"];
+$First_Name = $_POST["First_Name"];
+$Last_Name = $_POST["Last_Name"];
+$Date_of_Birth = $_POST["Date_of_Birth"];
+if (isset($_POST["Gender"])) {
+    $Gender = $_POST["Gender"];
+} else {
+    $Gender = "";
+}
+$Street_Address = $_POST["Street_Address"];
+$Suburb_Town = $_POST["Suburb_Town"];
+$Postcode = $_POST["Postcode"];
+$State = $_POST["State"];
+$email = $_POST["email"];
+$Phone_Number = $_POST["Phone_Number"];
+$other = $_POST["other"];
+$link = $_SERVER["HTTP_REFERER"];
+
+$selectedSkills = [];
+
+if (isset($_POST["Skills"]) && in_array("Html", $_POST["Skills"])) $selectedSkills[] = "Html";
+if (isset($_POST["Skills"]) && in_array("JavaScript", $_POST["Skills"])) $selectedSkills[] = "JavaScript";
+if (isset($_POST["Skills"]) && in_array("CSS", $_POST["Skills"])) $selectedSkills[] = "CSS";
+if (isset($_POST["Skills"]) && in_array("XML", $_POST["Skills"])) $selectedSkills[] = "XML";
+if (isset($_POST["Skills"]) && in_array("PHP", $_POST["Skills"])) $selectedSkills[] = "PHP";
+if (isset($_POST["Skills"]) && in_array("MySQL", $_POST["Skills"])) $selectedSkills[] = "MySQL";
+if (isset($_POST["Skills"]) && in_array("Other Skills", $_POST["Skills"])) $selectedSkills[] = "Other Skills";
+
+if (!empty($selectedSkills)) {
+    $Skills = implode(", ", $selectedSkills);
+} else {
+    $Skills = ""; // Set an empty string if no skills are selected
+}
+
+
+echo "<table>
+<tr>
+    <th>Reference Number</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+    <th>Street Address</th>
+    <th>Suburb/Town</th>
+    <th>Postcode</th>
+    <th>State</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Skills</th>
+    <th>Other Skills</th>
+</tr>
+<tr>
+    <td>$Reference_Number</td>
+    <td>$First_Name</td>
+    <td>$Last_Name</td>
+    <td>$Date_of_Birth</td>
+    <td>$Gender</td>
+    <td>$Street_Address</td>
+    <td>$Suburb_Town</td>
+    <td>$Postcode</td>
+    <td>$State</td>
+    <td>$email</td>
+    <td>$Phone_Number</td>
+    <td>$Skills</td>
+    <td>$other</td>
+</tr>
+</table>";
+
+function sanitise_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+$valid_postcodes = array(
+    "NSW" => range(2000, 2999),
+    "VIC" => range(3000, 3999), 
+    "QLD" => range(4000, 4999),
+    "SA" => range(5000, 5999),
+    "WA" => range(6000, 6999),
+    "TAS" => range(7000, 7999),
+    "NT" => range("0800", "0999"),
+    "ACT" => range(2600, 2920)
+);
+
+$errMsg = "";
+if ($Reference_Number == "") {
+    $errMsg .= "<p>You must enter the Reference Number.</p>";
+}
+if (!preg_match("/^[A-Za-z0-9 ]+$/", $Reference_Number)) {
+    $errMsg .= "<p>Only alphanumeric characters and spaces are allowed in the Reference Number.</p>";
+}
+if (strlen($Reference_Number) != 5) {
+    $errMsg .= "<p>Reference Number must be exactly 5 characters</p>";
+}
+if ($First_Name == "") {
+    $errMsg .= "<p>You must enter the First Name.</p>";
+}
+if (strlen($First_Name) > 20){
+    $errMsg .= "<p>You have exceeded the First Name Character Limit of 20";
+}
+if (!preg_match("/^[A-Za-z ]+$/", $First_Name)) {
+    $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the First Name.</p>";
+}
+if ($Last_Name == "") {
+    $errMsg .= "<p>You must enter the Last Name.</p>";
+}
+if (!preg_match("/^[A-Za-z ]+$/", $Last_Name)) {
+    $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the Last Name.</p>";
+}
+if (strlen($Last_Name) > 20){
+    $errMsg .= "<p>You have exceeded the Last Name Character Limit of 20</p>";
+}
+if ($Date_of_Birth == "") {
+    $errMsg .= "<p>You must enter the Date of Birth.</p>";
+}
+$minAge = 15;
+$maxAge = 80;
+
+$today = new DateTime();
+$inputDate = new DateTime($Date_of_Birth);
+$ageInterval = $inputDate->diff($today);
+$age = $ageInterval->y;
+
+if ($age < $minAge || $age > $maxAge) {
+    $errMsg.= "Invalid age range. You must be between $minAge and $maxAge years old.";
+}
+if ($Gender == "") {
+    $errMsg .= "<p>You must select the Gender.</p>";
+}
+if ($Street_Address == "") {
+    $errMsg .= "<p>You must enter the Street Address.</p>";
+}
+if(strlen($Street_Address) > 40) {
+    $errMsg .= "<p>You have exceeded the Street Address Character Limit of 40</p>";
+}
+if ($Suburb_Town == "") {
+    $errMsg .= "<p>You must enter the Suburb/Town.</p>";
+}
+if(strlen($Suburb_Town) > 40) {
+    $errMsg .= "<p>You have exceeded the Suburb/Town Character limit of 40</p>";
+}
+if (!preg_match("/^[A-Za-z ]+$/", $Suburb_Town)) {
+    $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the Suburb/Town.</p>";
+}
+if ($Postcode == "") {
+    $errMsg .= "<p>You must enter the Postcode.</p>";
+}
+if (!preg_match("/^\d{4}$/", $Postcode)) {
+    $errMsg .= "<p>Postcode must be a 4-digit number.</p>";
+}
+if ($State == "") {
+    $errMsg .= "<p>You must select the State.</p>";
+}
+if ($email == "") {
+    $errMsg .= "<p>You must enter the Email.</p>";
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errMsg .= "<p>Invalid email format.</p>";
+}
+if ($Phone_Number == "") {
+    $errMsg .= "<p>You must enter the Phone Number.</p>";
+}
+if ($Skills =="") {
+    $errMsg .= "<p>Please select at least one Skill.</p>";
+}
+if (!preg_match("/^[\d]{8,12}$/", $Phone_Number)) {
+    $errMsg .= "<p>Phone Number must be between 8 to 12 digits.</p>";
+}
+if (!in_array($Postcode, $valid_postcodes[$State])) {
+    $errMsg .= "<p>The Postcode entered does not match the selected State</p>";
+}
+
+if (isset($_POST['Skills']) && in_array("Other Skills", $_POST['Skills']) && empty($_POST['other'])) {
+    $errMsg .= "<p>Please specify your other skills.</p>";
+}
+
+if ($errMsg != "") {
+    echo "<h2>There are errors. Please enter all the required fields correctly.</h2>";
+    echo $errMsg;
+    echo "<a href='$link'>Go back to Application Form</a>";
+} else {
+    $Reference_Number = sanitise_input($Reference_Number);
+    $First_Name = sanitise_input($First_Name);
+    $Last_Name = sanitise_input($Last_Name);
+    $Date_of_Birth = sanitise_input($Date_of_Birth);
+    $Gender = sanitise_input($Gender);
+    $Street_Address = sanitise_input($Street_Address);
+    $Suburb_Town = sanitise_input($Suburb_Town);
+    $Postcode = sanitise_input($Postcode);
+    $State = sanitise_input($State);
+    $email = sanitise_input($email);
+    $Phone_Number = sanitise_input($Phone_Number);
+    $other = sanitise_input($other);
+    $Reference_Number = mysqli_real_escape_string($conn, $Reference_Number);
+    $First_Name = mysqli_real_escape_string($conn, $First_Name);
+    $Last_Name = mysqli_real_escape_string($conn, $Last_Name);
+    $Date_of_Birth = mysqli_real_escape_string($conn, $Date_of_Birth);
+    $Gender = mysqli_real_escape_string($conn, $Gender);
+    $Street_Address = mysqli_real_escape_string($conn, $Street_Address);
+    $Suburb_Town = mysqli_real_escape_string($conn, $Suburb_Town);
+    $Postcode = mysqli_real_escape_string($conn, $Postcode);
+    $State = mysqli_real_escape_string($conn, $State);
+    $email = mysqli_real_escape_string($conn, $email);
+    $Phone_Number = mysqli_real_escape_string($conn, $Phone_Number);
+    $Skills = mysqli_real_escape_string($conn, $Skills);
+    $other = mysqli_real_escape_string($conn, $other);
+
+    $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other')";
+    if (mysqli_query($conn, $sql)) {
+        $insertedID = mysqli_insert_id($conn); // Get the last inserted ID
+        echo "<h3>Data inserted successfully! Your EOInumber is: $insertedID</h3>";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+?>
+</div>
+<?php include_once("footer.inc"); ?>
 </body>
 </html>
+
+
