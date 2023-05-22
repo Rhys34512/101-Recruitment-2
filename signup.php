@@ -57,7 +57,7 @@
 
 		<div>
 			<label for="re_password">Re-enter Password</label>
-			<input type="password" name="re_password" size="40" placeholder="Re_Password">
+			<input type="password" name="re_password" size="40" placeholder="Confirm Password">
 		</div>
 		</div>
 	
@@ -68,7 +68,7 @@
 
 
         
-      <hr>
+      
 
 		
 		
