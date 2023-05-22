@@ -48,7 +48,7 @@
         <label for="Street_Address">Street Address <input type="text" id="Street_Address" name="Street_Address" size="40" required="required"></label><br>
         <p><label for="suburb/town">Suburb/town <input type="text" id="suburb/town" name="Suburb_Town" size="40" required="required"></label></p>
         <div style="float:left;margin-right:20px;">
-          <label for="postcode">Postcode <input type="text" id="postcode" name="Postcode" pattern="[0-9-]+" maxlength="4" required="required"></label>
+          <label for="postcode">Postcode <input type="text" id="postcode" name="Postcode" pattern="[0-9-]+" required="required"></label>
         </div>&nbsp;&nbsp;
         <div style="float:left;">
           <label for="State">State</label> <select name="State" id="State">
