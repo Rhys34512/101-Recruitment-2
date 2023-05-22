@@ -14,6 +14,27 @@
     <?php
 $Skills = "";
 require_once('settings.php');
+$sqlCreateTable = "CREATE TABLE IF NOT EXISTS eoi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numJob VARCHAR(5) NOT NULL,
+    txtFname VARCHAR(20) NOT NULL,
+    txtLname VARCHAR(20) NOT NULL,
+    txtBirthDate DATE NOT NULL,
+    txtGender VARCHAR(10) NOT NULL,
+    txtAddress VARCHAR(100) NOT NULL,
+    txtState VARCHAR(10) NOT NULL,
+    numPostcode VARCHAR(4) NOT NULL,
+    txtEmail VARCHAR(100) NOT NULL,
+    txtPhone VARCHAR(12) NOT NULL,
+    lstSkills VARCHAR(100) NOT NULL,
+    txtOtherSkills TEXT,
+    txtStatus ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
+)";
+
+if (mysqli_query($conn, $sqlCreateTable)) {
+} else {
+    echo "Error creating EOI table: " . mysqli_error($conn);
+}
 $conn = @mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -203,7 +224,8 @@ if (isset($_POST['Skills']) && in_array("Other Skills", $_POST['Skills']) && emp
 if ($errMsg != "") {
     echo "<h2>There are errors. Please enter all the required fields correctly.</h2>";
     echo $errMsg;
-    echo "<a href='$link'>Go back to Application Form</a>";
+    echo "<hr>";
+    echo '<button id="back" onclick="history.back()">Go Back</button>';
 } else {
     $Reference_Number = sanitise_input($Reference_Number);
     $First_Name = sanitise_input($First_Name);
@@ -231,7 +253,8 @@ if ($errMsg != "") {
     $Skills = mysqli_real_escape_string($conn, $Skills);
     $other = mysqli_real_escape_string($conn, $other);
 
-    $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other')";
+    $status = 'New';
+    $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills, txtStatus) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other', '$status')";
     if (mysqli_query($conn, $sql)) {
         $insertedID = mysqli_insert_id($conn); // Get the last inserted ID
         echo "<h3>Data inserted successfully! Your EOInumber is: $insertedID</h3>";
