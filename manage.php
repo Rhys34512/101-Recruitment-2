@@ -4,26 +4,50 @@
  </head>
  <body>
   <?php 
-    require_once"settings.php";
+    require_once"Settings.php";
     
 	if($conn)
     {
-		$target_jobNum = "All";
-		
+		//Set values
+		$jobNumber = "All";
 		if(isset($_POST["jobNumber"]))
+			$jobNumber = $_POST["jobNumber"];
+		
+		$firstName = "";
+		if(isset($_POST["firstName"]))
+			$firstName = $_POST["firstName"];
+		
+		$lastName = "";
+		if(isset($_POST["lastName"]))
+			$lastName = $_POST["lastName"];
+		
+		
+		//Form query from values
+		$query = "SELECT * FROM eoi";
+		if($firstName != "" || $lastName != "")
 		{
-			$target_jobNum = $_POST["jobNumber"];
+			$query .= " WHERE";
+			if($firstName != null)
+			{
+				$query .= " txtFname = \"$firstName\"";
+			}if($lastName != null)
+			{
+				if($firstName != null)
+					$query .= " &&";
+				
+				$query .= " txtLname = \"$lastName\"";
+			}
 		}
-
-        $query = "SELECT * FROM eoi";
-        $result = mysqli_query($conn, $query);
-     
+		else if($jobNumber != "All")
+			$query .= " WHERE numJob = $jobNumber";
+				
+		echo $query;
+		$result = mysqli_query($conn, $query);
+		
 		$rows = mysqli_num_rows($result);
 		if($result)
-			{
+		{
 			$append = ($rows > 1) ? "s": "";
-			echo "<p>$rows record$append retrieved for $target_jobNum</p>";
-		
 			echo "<div class=\"wrapper\">";
 			echo "<div class=\"jobDescription\">";
 			
@@ -53,8 +77,6 @@
 					$txtSkills = $record['lstSkills']; 
 					$txtOtherSkills = $record['txtOtherSkills']; 
 					
-					if($target_jobNum == "All" || $numJOB == $target_jobNum)
-					{
 					$jobExists = false;
 					for ($i = 0; $i < count($jobIDs); $i++)
 					{
@@ -70,8 +92,22 @@
 					}
 					
 					echo "<section class=\"jobInfo\">";
+					echo "<h4> Job Status: $txtStatus</h4>";
+
+					echo "<form method=\"post\" action=\"manage.php\">";
+						echo "<label for=\"jobStatus\">";
+						echo "<select name=\"jobStatus\" id=\"jobStatus\">";
+							//UPDATE eoi SET status='jobStatus' WHERE idEOI=&idEOI
+							echo "<option value=\"New\">New</option>";
+							echo "<option value=\"Current\">Current</option>";
+							echo "<option value=\"Final\">Final</option>";
+						echo "</select>";
+						echo "<input type=\"submit\" /*id=\"submit\"*/ value=\"Update Status\">";
+					echo "</form>";
+					
 					echo "<h3>$numJOB - Applicant Details for: $txtFname $txtLname</h3>";
-					echo "<table border=\"0\" align=\"left\" width=\"1000px\">\n";
+					
+					echo "<table border=\"0\" align=\"left\" width=\"100%\">\n";
 		
 					echo "<tr>\n"
 						."<td> Expression of Interest #</td>"
@@ -127,7 +163,7 @@
 						."<td> </td>"
 						."</tr>\n";
 					echo "</table>";
-
+					
 					echo "<h3>Relevant Skills</h3>";
 					echo "<p>$txtSkills</p>";
 				
@@ -139,33 +175,31 @@
 					echo"<hr>";
 					}
 				}
-			}
+			
 			echo "</div>";
 			
-			echo "<aside class=\"jobSidebar\">";
+			echo "<aside width=\"25%\">";
 				echo "<form method=\"post\" action=\"manage.php\">";
 					echo "<fieldset>";
-					echo "<legend>Job Opening Search</legend>";
-					echo "<hr id=\"jobs-hr\">";
+						echo "<legend>Job Opening Search</legend>";
+						echo "<hr id=\"jobs-hr\">";
 				
-					echo "<label for=\"jobNumber\">";
-					echo "<select name=\"jobNumber\" id=\"jobNumber\">";
-					echo "<option value=\"All\">". All ."<br>";
-					for ($i = 0; $i < count($jobIDs); $i++)
-					{
-						echo "<option value=\"$jobIDs[$i]\">". $jobIDs[$i] ."<br>";	
-						echo "</option>";
-					}
-					echo "</select>";
+						echo "<label for=\"jobNumber\">";
+						echo "<select name=\"jobNumber\" id=\"jobNumber\">";
+						echo "<option value=\"All\">". All ."<br>";
+						for ($i = 0; $i < count($jobIDs); $i++)
+						{
+							echo "<option value=\"$jobIDs[$i]\">". $jobIDs[$i] ."<br>";	
+							echo "</option>";
+						}
+						echo "</select>";
 					
-					echo "<input type=\"submit\" id=\"submit\" value=\"Update Display\">";
-					echo "<br>";
-					echo "<input type=\"submit\" id=\"submit\" value=\"Delete Displayed Jobs\">";
-					echo "<br>";
-					echo "<input type=\"submit\" id=\"submit\" value=\"Display Specific Applicant\">";
-				
-					echo "</form>";
-				echo "</fieldset>";
+						echo "<Label for=\"firstName\"> First Name: <input type=\"text\" id=\"firstName\" name=\"firstName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
+						echo "<Label for=\"lastName\"> Last Name: <input type=\"text\" id=\"lastName\" name=\"lastName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
+						echo "<input type=\"submit\" value=\"Update Display\">";
+					echo "</fieldset>";
+				echo "</form>";
+				echo "<button><a href=\"Logout.php\">Logout</a> </button>";
 			echo "</aside>";
 			
 		}
@@ -189,6 +223,6 @@
   • List all EOIs. done
   • List all EOIs for a particular position (given a job reference number). done
   • Delete all EOIs with a specified job reference number
-  • List all EOIs for a particular applicant given their first name, last name or both.
+  • List all EOIs for a particular applicant given their first name, last name or both. done
   • Change the Status of an EOI.
  -->
