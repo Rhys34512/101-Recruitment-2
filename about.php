@@ -81,7 +81,7 @@
     <hr>
     <h3>Rhys</h3>
     <h4>Programming Skills:</h4>
-    <p>My Programming skills span from knowledge of HTML, CSS, Python, G-Code and Ruby. I have used these programming skills to primarily with microcomputers such as raspberry pi's and arduinos to make small mechanical and electrical componenets.</p>
+    <p>My Programming skills span from knowledge of HTML, CSS, Python, G-Code and Ruby. I have used these programming skills primarily with microcomputers such as raspberry pi's and arduinos to make small mechanical and electrical componenets.</p>
     <h4>Working experience:</h4>
     <p>I have some work experience using my programming knowledge. I have used my programming knowledge to make small applications for my fathers work, and also write G-code for my 3D Printers which I use to sell models and prints online.</p>
     <h4>Interests:</h4>
