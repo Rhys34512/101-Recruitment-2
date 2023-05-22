@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <title>Application Confirmation</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Echo from data entered">
-    <meta name="author" content="Tafadzwa Mudavanhu">
+    <meta charset="utf-8"/>
+    <meta name="description" content="Echo from data entered"/>
+    <meta name="author" content="Tafadzwa Mudavanhu"/>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -53,7 +53,7 @@ if (isset($_POST["Skills"]) && in_array("Other Skills", $_POST["Skills"])) $sele
 if (!empty($selectedSkills)) {
     $Skills = implode(", ", $selectedSkills);
 } else {
-    $Skills = ""; 
+    $Skills = ""; // Set an empty string if no skills are selected
 }
 
 
@@ -121,6 +121,9 @@ if (strlen($Reference_Number) != 5) {
 if ($First_Name == "") {
     $errMsg .= "<p>You must enter the First Name.</p>";
 }
+if (strlen($First_Name) > 20){
+    $errMsg .= "<p>You have exceeded the First Name Character Limit of 20";
+}
 if (!preg_match("/^[A-Za-z ]+$/", $First_Name)) {
     $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the First Name.</p>";
 }
@@ -129,6 +132,9 @@ if ($Last_Name == "") {
 }
 if (!preg_match("/^[A-Za-z ]+$/", $Last_Name)) {
     $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the Last Name.</p>";
+}
+if (strlen($Last_Name) > 20){
+    $errMsg .= "<p>You have exceeded the Last Name Character Limit of 20</p>";
 }
 if ($Date_of_Birth == "") {
     $errMsg .= "<p>You must enter the Date of Birth.</p>";
@@ -150,8 +156,14 @@ if ($Gender == "") {
 if ($Street_Address == "") {
     $errMsg .= "<p>You must enter the Street Address.</p>";
 }
+if(strlen($Street_Address) > 40) {
+    $errMsg .= "<p>You have exceeded the Street Address Character Limit of 40</p>";
+}
 if ($Suburb_Town == "") {
     $errMsg .= "<p>You must enter the Suburb/Town.</p>";
+}
+if(strlen($Suburb_Town) > 40) {
+    $errMsg .= "<p>You have exceeded the Suburb/Town Character limit of 40</p>";
 }
 if (!preg_match("/^[A-Za-z ]+$/", $Suburb_Town)) {
     $errMsg .= "<p>Only alphabetic characters and spaces are allowed in the Suburb/Town.</p>";
@@ -190,7 +202,6 @@ if (isset($_POST['Skills']) && in_array("Other Skills", $_POST['Skills']) && emp
 
 if ($errMsg != "") {
     echo "<h2>There are errors. Please enter all the required fields correctly.</h2>";
-    echo "<hr>";
     echo $errMsg;
     echo "<a href='$link'>Go back to Application Form</a>";
 } else {
@@ -223,7 +234,7 @@ if ($errMsg != "") {
     $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other')";
     if (mysqli_query($conn, $sql)) {
         $insertedID = mysqli_insert_id($conn); // Get the last inserted ID
-        echo "<h3>Data inserted successfully! Your ID is: $insertedID</h3>";
+        echo "<h3>Data inserted successfully! Your EOInumber is: $insertedID</h3>";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
