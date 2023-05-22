@@ -75,15 +75,20 @@
 		
 		<div id="submission">
         <p id="enhancement1">
-        <label for="submit"><input type="submit" id="submit" value="Sign Up">
+        <label for="submit"><input type="submit" id="submit2" value="Sign Up">
      	</label>&nbsp;
+		</div>
+		
+		<div id="submission2">
         <a href="login.php" class="ca">Already have an Account?</a>
         </p>
+		
+		</div>
 		<!--Submit button which will allow users to submit their data, if every required data box is filled out with expected input, if not they will be notified to make changes. The data will then be returned to them and echoed on the PHP page.
 		
 	
 	The reset button will just clear all of the data that has been input.-->
-      </div>
+      
     </form><!--Ending of the form-->
   </div><!--Ending of the div-->
   <!-- this the footer which will be at the bottom of the page which is broken into 4 divs, main including company logo,
