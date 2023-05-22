@@ -54,7 +54,7 @@
         </ul>
         <h3>Sounds like your new job? Apply below:<br>
         <!-- A link to the job submission page //--></h3>
-        <p><a href="apply.html" class="job-buttonclass">Submit Application</a></p>
+        <p><a href="apply.php" class="job-buttonclass">Submit Application</a></p>
       </section><!-- the individual descriptions are separated with 'section' tags, and 'id' tags are used for the chapters //-->
       <section class="jobInfo" id="00002">
         <hr>
@@ -85,7 +85,7 @@
         </ul>
         <h3>Sounds like your new job? Apply below:<br>
         <!-- A link to the job submission page //--></h3>
-        <p><a href="apply.html" class="job-buttonclass">Submit Application</a></p>
+        <p><a href="apply.php" class="job-buttonclass">Submit Application</a></p>
       </section><!-- the individual descriptions are separated with 'section' tags, and 'id' tags are used for the chapters //-->
       <section class="jobInfo" id="00003">
         <hr>
@@ -113,7 +113,7 @@
         </ul>
         <h3>Sounds like your new job? Apply below:<br>
         <!-- A link to the job submission page //--></h3>
-        <p><a href="apply.html" class="job-buttonclass">Submit Application</a></p>
+        <p><a href="apply.php" class="job-buttonclass">Submit Application</a></p>
       </section>
     </div><!-- the aside needed to be aligned to the right and at least 25% of the page width. //-->
     <aside class="jobSidebar">
