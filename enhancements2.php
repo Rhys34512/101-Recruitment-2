@@ -35,7 +35,7 @@
 		<p>Enhancement Author: Louis</p>	
     </div>
 	<div class="enhancement">
-   <h2><a href=".php">Frequently Asked Questions</a></h2>
+   <h2><a href="FAQ.php">Frequently Asked Questions</a></h2>
    <p>This enhancement is a page (FAQ.php) that conists of an index of questions in which those who are using the website (e.g., Prospective employees, Managers, etc.) may have, as well as their corresponding answers. This serves to provide a level of clarity for those using the website, and is especially designed for those who are unfamiliar with it and its interface.</p>
    <p>Whilst the answer to each question displayed is initially hidden, the page utilises CSS in order to  display it upon the question being clicked, doing so with a collapse-like effect. This is to ensure that the page is easy to navigate and does not appear too cluttered.</p>
 		<p>Enhancement Author: Ruhul</p>	
