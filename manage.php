@@ -4,7 +4,7 @@
  </head>
  <body>
   <?php 
-    require_once"Settings.php";
+    require_once"settings.php";
     
 	if($conn)
     {
