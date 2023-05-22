@@ -24,7 +24,7 @@
 	        at 101 IT, the world’s leading brand in technological innovation.
 	        </p>
 	        <p class="intro-body">To get started, please visit our Job Openings page by clicking the button below.</p>
-		<p id="introduction-button"><a href="jobs.html" id="buttonclass" title="Browse Job Openings">Job Openings</a></p>
+		<p id="introduction-button"><a href="jobs.php" id="buttonclass" title="Browse Job Openings">Job Openings</a></p>
 	    </div>
 	
 
@@ -128,7 +128,7 @@
 	    <div id="call-to-action">
 	        <p id="cta-title">Ready to join the future of web design?</p>
 	        <p id="cta-body">We're now accepting applicants to be a part of our innovative team. Apply for a position today.</p>
-		<p id="cta-button"><a href="jobs.html" id="cta-buttonclass" title="Browse Job Openings">Job Openings</a></p>
+		<p id="cta-button"><a href="jobs.php" id="cta-buttonclass" title="Browse Job Openings">Job Openings</a></p>
 	    </div>  
 	
 <!-- this the footer which will be at the bottom of the page which is broken into 4 divs, main including company logo,
