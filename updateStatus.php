@@ -1,5 +1,5 @@
 <?php
-	require_once"Settings.php";
+	require_once"settings.php";
 		
 	$array = unserialize($_POST["jobStatus"]);
 	
@@ -12,5 +12,5 @@
 	$result = mysqli_query($conn, $query);
 	
 	mysqli_close($conn);
-	header('Location: /cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/manage.php');
+	header('Location: /manage.php');
 ?>
