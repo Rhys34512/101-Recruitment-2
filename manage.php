@@ -4,7 +4,7 @@
  </head>
  <body>
   <?php 
-    require_once"Settings.php";
+    require_once"settings.php";
     
 	if($conn)
     {
@@ -41,7 +41,7 @@
 		else if($jobNumber != "All")
 			$query .= " WHERE numJob = $jobNumber";
 				
-		echo $query;
+		echo "DEBUG: $query"	;
 		$result = mysqli_query($conn, $query);
 		
 		$rows = mysqli_num_rows($result);
@@ -94,15 +94,14 @@
 					echo "<section class=\"jobInfo\">";
 					echo "<h4> Job Status: $txtStatus</h4>";
 
-					echo "<form method=\"post\" action=\"manage.php\">";
+					echo "<form method=\"post\" action=\"/cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/updateStatus.php\">";
 						echo "<label for=\"jobStatus\">";
 						echo "<select name=\"jobStatus\" id=\"jobStatus\">";
-							//UPDATE eoi SET status='jobStatus' WHERE idEOI=&idEOI
-							echo "<option value=\"New\">New</option>";
-							echo "<option value=\"Current\">Current</option>";
-							echo "<option value=\"Final\">Final</option>";
+							echo "<option value=". serialize(array($idEOI, "New")) .">New</option>";
+							echo "<option value=". serialize(array($idEOI, "Current")) .">Current</option>";
+							echo "<option value=". serialize(array($idEOI, "Final")) .">Final</option>";
 						echo "</select>";
-						echo "<input type=\"submit\" /*id=\"submit\"*/ value=\"Update Status\">";
+						echo "<input type=\"submit\" id=\"newType\" value=\"Update Status\">";
 					echo "</form>";
 					
 					echo "<h3>$numJOB - Applicant Details for: $txtFname $txtLname</h3>";
@@ -199,7 +198,7 @@
 						echo "<input type=\"submit\" value=\"Update Display\">";
 					echo "</fieldset>";
 				echo "</form>";
-				echo "<button><a href=\"Logout.php\">Logout</a> </button>";
+				echo "<button><a href=\"Index.php\">Logout</a> </button>";
 			echo "</aside>";
 			
 		}
