@@ -198,7 +198,14 @@
 						echo "<input type=\"submit\" value=\"Update Display\">";
 					echo "</fieldset>";
 				echo "</form>";
-				echo "<button><a href=\"Index.php\">Logout</a> </button>";
+			
+				echo "<form method=\"post\" action=\"deleteEntry.php\">";
+					echo "<label for=\"Delete all entries for: \". $jobNumber>";
+					echo "<input type=\"submit\" value=\"Delete Entries\">";
+					
+				echo "</form>";
+			
+			echo "<button><a href=\"Index.php\">Logout</a> </button>";
 			echo "</aside>";
 			
 		}
