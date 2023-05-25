@@ -1,16 +1,13 @@
 <?php
 	require_once"settings.php";
-		
-	$array = unserialize($_POST["jobStatus"]);
 	
-	$idEOI = $array[0];
-	$jobNumber = $array[1];
+	$jobNumber = $_POST["jobStatus"];
 	
-	$query = "DELETE WHERE numJob = ". $jobnumber;
+	$query = "DELETE FROM eoi WHERE numJob = ". $jobNumber;
 	
 	echo $query;
 	$result = mysqli_query($conn, $query);
 	
 	mysqli_close($conn);
-	header('Location: /manage.php');
+	header('Location: /cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/manage.php');
 ?>
