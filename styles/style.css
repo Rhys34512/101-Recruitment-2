@@ -1131,3 +1131,17 @@ li#nav-login {
 .form-container2 label {
     margin-right: 10px;
   }
+#back {
+  cursor: pointer;
+
+  border: 1.5px solid #18acf7;
+  color: #18acf7;
+  transition: 0.3s ease-in-out;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+#back:hover {
+  color: #ffffff;
+  background-color: #18acf7;
+}
