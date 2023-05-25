@@ -15,7 +15,7 @@
 $Skills = "";
 require_once('settings.php');
 $sqlCreateTable = "CREATE TABLE IF NOT EXISTS eoi (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    idEOI INT AUTO_INCREMENT PRIMARY KEY,
     numJob VARCHAR(5) NOT NULL,
     txtFname VARCHAR(20) NOT NULL,
     txtLname VARCHAR(20) NOT NULL,
