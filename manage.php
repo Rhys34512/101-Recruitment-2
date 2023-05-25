@@ -199,12 +199,12 @@
 					echo "</fieldset>";
 				echo "</form>";
 			
-				echo "<form method=\"post\" action=\"deleteEntry.php\">";
-					echo "<label for=\"Delete all entries for: \". $jobNumber>";
-					echo "<input type=\"submit\" value=\"Delete Entries\">";
-					
-				echo "</form>";
-			
+				if($jobNumber != "All")
+				{
+					echo "<form method=\"post\" action=\"/cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/deleteEntry.php\">";
+						echo "<button type=\"submit\" name=\"jobStatus\" value=\"$numJOB\">Delete entries for $numJOB</button>";
+					echo "</form>";
+				}
 			echo "<button><a href=\"Index.php\">Logout</a> </button>";
 			echo "</aside>";
 			
@@ -228,7 +228,7 @@
  the eoi table and returns a web page with the appropriate results.
   • List all EOIs. done
   • List all EOIs for a particular position (given a job reference number). done
-  • Delete all EOIs with a specified job reference number
+  • Delete all EOIs with a specified job reference number. done
   • List all EOIs for a particular applicant given their first name, last name or both. done
-  • Change the Status of an EOI.
+  • Change the Status of an EOI. done
  -->
