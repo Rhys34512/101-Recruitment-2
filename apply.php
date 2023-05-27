@@ -108,34 +108,6 @@
   <!-- this the footer which will be at the bottom of the page which is broken into 4 divs, main including company logo,
 links for the different pages within the website,
 location of our headquaters and our socials -->
-  <footer>
-    <div id="footer-main">
-      <img src="images/logodarkmode.png" title="Company Logo" width="115" height="65" id="footer-logo" alt="logodarkmode">
-      <p class="footer-sub">Proudly delivering unique and industry-leading solutions to companies around the world.</p>
-    </div>
-    <div id="footer-links">
-      <p class="footer-section-title">Links</p>
-      <ul id="footer-nav">
-        <li>
-          <a href="index.html" class="footer-nav-link">Home</a>
-        </li>
-        <li>
-          <a href="jobs.html" class="footer-nav-link">Job Openings</a>
-        </li>
-        <li>
-          <a href="apply.html" class="footer-nav-link">Submit Application</a>
-        </li>
-        <li>
-          <a href="services.html" class="footer-nav-link">Services</a>
-        </li>
-        <li>
-          <a href="enhancements.html" class="footer-nav-link">Enhancements</a>
-        </li>
-        <li>
-          <a href="about.html" class="footer-nav-link">About Us</a>
-        </li>
-      </ul>
-    </div>
   <?php include_once("footer.inc"); ?>
 </body>
 </html>
