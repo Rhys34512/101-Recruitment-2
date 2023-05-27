@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML, CSS">
     <meta name="author" content="Ruhul">
 
-    <title>Frequently asked questions?</title>
+    <title>Frequently Asked Questions (FAQ)</title>
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
@@ -17,10 +17,11 @@
 
 <?php include_once("menu.inc"); ?>
 
+<div class="sec">
 <div class="faq-main">
+<h2 id="faq-header">Frequently Asked Questions (FAQ)</h2>
+<hr>
   <div class="faq-container">
-    <h1>Frequently asked questions?</h1>
-
     <div class="tab">
       <input type="radio" name="acc" id="acc1">
       <label for="acc1">
@@ -93,7 +94,7 @@
     </div>
   </div>
   </div>
-    
+  </div>
     <?php include_once("footer.inc"); ?>
     
 </body>
