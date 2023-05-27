@@ -955,6 +955,10 @@ td{
 	margin-top: 0px;
 	text-align: center;
 }
+#faq-header {
+	margin-top: 0px;
+	text-align: center;
+}
 /*Enhancement header will be styled to be aligned in the center of the page*/
 .enhancement{
   text-align: left;
@@ -1128,6 +1132,10 @@ li#nav-login {
   border-collapse: collapse;
 }
 
+#careers-description {
+	padding-bottom: 30px;
+}
+
 .form-container2 label {
     margin-right: 10px;
   }
@@ -1156,6 +1164,8 @@ li#nav-login {
 
 .faq-container {
     margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 20px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -1184,6 +1194,7 @@ li#nav-login {
 }
 
 .faq-container .tab input {
+	border: none;
     appearance: none;
 }
 
@@ -1245,6 +1256,10 @@ transition: all 0.3s ease ;
 
 }
 
+.faq-container .tab:nth-child(1) label h2 {
+    background: linear-gradient(135deg, #18c5f0 , #14b1ff );
+}
+
 .faq-container .tab:nth-child(2) label h2 {
     background: linear-gradient(135deg, #18c5f0 , #14b1ff );
 }
@@ -1258,10 +1273,6 @@ transition: all 0.3s ease ;
 }
 
 .faq-container .tab:nth-child(5) label h2 {
-    background: linear-gradient(135deg, #18c5f0 , #14b1ff );
-}
-
-.faq-container .tab:nth-child(6) label h2 {
     background: linear-gradient(135deg, #18c5f0 , #14b1ff );
 }
 
