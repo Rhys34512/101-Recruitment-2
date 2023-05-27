@@ -15,7 +15,7 @@
   
   <div class="sec">
     <h2 class="h2">Careers Portal</h2>
-
+	<hr>
 	<?php
 		
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST))	{
@@ -82,7 +82,7 @@
 	else {
 		
 		echo '<p>Welcome to the official 101 Recruitment Careers Portal. To get started, please enter your credentials in the form below.</p>
-		<p>This page is intended for use only by individuals who have previously submitted a Job Application. If you would like to browse available positions, please visit our <a class="careers-link" href="jobs.php">Job Openings</a> page.</p>
+		<p id="careers-description">This page is intended for use only by individuals who have previously submitted a Job Application. If you would like to browse available positions, please visit our <a class="careers-link" href="jobs.php">Job Openings</a> page.</p>
 		<form action="" method="post">
 				<fieldset>
 					<legend>Job Application Details</legend>
