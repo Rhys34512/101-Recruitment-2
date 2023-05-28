@@ -101,7 +101,7 @@
 					echo "<section class=\"jobInfo\">";
 					echo "<h4> Job Status: $txtStatus</h4>";
 
-					echo "<form method=\"post\" action=\"updateStatus.php\">";
+					echo "<form method=\"post\" action=\"/updateStatus.php\">";
 						echo "<label for=\"jobStatus\">";
 						echo "<select name=\"jobStatus\" id=\"jobStatus\">";
 							echo "<option value=". serialize(array($idEOI, "New")) .">New</option>";
@@ -185,7 +185,7 @@
 			echo "</div>";
 			
 			echo "<aside width=\"25%\">";
-				echo "<form method=\"post\" action=\"manage.php\">";
+				echo "<form method=\"post\" action=\"/manage.php\">";
 					echo "<fieldset>";
 						echo "<legend>Job Opening Search</legend>";
 						echo "<hr id=\"jobs-hr\">";
@@ -208,7 +208,7 @@
 			
 				if($jobNumber != "All")
 				{
-					echo "<form method=\"post\" action=\"deleteEntry.php\">";
+					echo "<form method=\"post\" action=\"/deleteEntry.php\">";
 						echo "<button type=\"submit\" name=\"jobStatus\" value=\"$numJOB\">Delete entries for $numJOB</button>";
 					echo "</form>";
 				}
