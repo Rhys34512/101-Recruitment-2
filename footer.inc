@@ -36,7 +36,7 @@ echo '<footer>
 	                        <a href="careers.php" class="footer-nav-link">Careers Portal</a>
 	                    </li>
 	                    <li>
-	                        <a href="enhancements2.php" class="footer-nav-link">Enhancements 2</a>
+	                        <a href="phpenhancements.php" class="footer-nav-link">Enhancements 2</a>
 	                    </li>
 	                    <li>
 	                        <a href="login.php" class="footer-nav-link">Manager Login</a>
