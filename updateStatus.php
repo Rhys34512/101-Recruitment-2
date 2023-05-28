@@ -12,5 +12,5 @@
 	$result = mysqli_query($conn, $query);
 	
 	mysqli_close($conn);
-	header('Location: /manage.php');
+	header('Location: manage.php');
 ?>
