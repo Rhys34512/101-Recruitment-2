@@ -101,7 +101,7 @@
 					echo "<section class=\"jobInfo\">";
 					echo "<h4> Job Status: $txtStatus</h4>";
 
-					echo "<form method=\"post\" action=\"/cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/updateStatus.php\">";
+					echo "<form method=\"post\" action=\"updateStatus.php\">";
 						echo "<label for=\"jobStatus\">";
 						echo "<select name=\"jobStatus\" id=\"jobStatus\">";
 							echo "<option value=". serialize(array($idEOI, "New")) .">New</option>";
@@ -208,7 +208,7 @@
 			
 				if($jobNumber != "All")
 				{
-					echo "<form method=\"post\" action=\"/cos10026/s104443353/101-Recruitment-main/101-Recruitment-main/deleteEntry.php\">";
+					echo "<form method=\"post\" action=\"deleteEntry.php\">";
 						echo "<button type=\"submit\" name=\"jobStatus\" value=\"$numJOB\">Delete entries for $numJOB</button>";
 					echo "</form>";
 				}
