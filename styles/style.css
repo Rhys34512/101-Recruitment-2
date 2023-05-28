@@ -1251,9 +1251,6 @@ font-size: 5em;
 justify-content: flex-end;
 padding: 20px;
 transition: all 0.3s ease ;
-
-
-
 }
 
 .faq-container .tab:nth-child(1) label h2 {
@@ -1275,11 +1272,6 @@ transition: all 0.3s ease ;
 .faq-container .tab:nth-child(5) label h2 {
     background: linear-gradient(135deg, #18c5f0 , #14b1ff );
 }
-
-
-
-
-
 
 .faq-container .tab label h3 {
     position: relative;
@@ -1317,4 +1309,8 @@ transition: all 0.3s ease ;
 
 .faq-container .tab input:checked ~ .content p {
     color: #fff;
+}
+
+#h1-manage {
+	text-align: center;
 }
