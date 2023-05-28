@@ -1,8 +1,16 @@
-<html>
- <head>
- <link rel="stylesheet" href="styles/style.css">
- </head>
- <body>
+<!--Standard Meta Tags-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A page in which managers can view/modify submitted job applications">
+  <meta name="keywords" content="Manager, Job Records, Update Status">
+  <meta name="author" content="Luke">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Management Portal | 101 Recruitment</title>
+</head><!-- Container to hold the navidgation bar-->
+<body>
+<h1 id="h1-manage">Management Portal</h1>
   <?php 
     require_once"settings.php";
     
@@ -39,9 +47,8 @@
 			}
 		}
 		else if($jobNumber != "All")
-			$query .= " WHERE numJob = '". $jobNumber "'";
+			$query .= " WHERE numJob = '". $jobNumber;
 				
-		echo "DEBUG: $query"	;
 		$result = mysqli_query($conn, $query);
 		
 		$rows = mysqli_num_rows($result);
@@ -193,8 +200,8 @@
 						}
 						echo "</select>";
 					
-						echo "<Label for=\"firstName\"> First Name: <input type=\"text\" id=\"firstName\" name=\"firstName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
-						echo "<Label for=\"lastName\"> Last Name: <input type=\"text\" id=\"lastName\" name=\"lastName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
+						echo "<label for=\"firstName\"> First Name: <input type=\"text\" id=\"firstName\" name=\"firstName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
+						echo "<label for=\"lastName\"> Last Name: <input type=\"text\" id=\"lastName\" name=\"lastName\" pattern=\"^[a-zA-Z]+$\" maxlength=\"20\"</label>";
 						echo "<input type=\"submit\" value=\"Update Display\">";
 					echo "</fieldset>";
 				echo "</form>";
@@ -220,7 +227,9 @@
 	}
      mysqli_close($conn);
   ?> 
+  </div>
  </body>
+ <?php include_once("footer.inc"); ?>
 </html>
 
 <!-- 
