@@ -47,7 +47,7 @@
 			}
 		}
 		else if($jobNumber != "All")
-			$query .= " WHERE numJob = '". $jobNumber;
+			$query .= " WHERE numJob = '". $jobNumber ."'";
 				
 		$result = mysqli_query($conn, $query);
 		
