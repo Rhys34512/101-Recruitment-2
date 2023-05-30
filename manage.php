@@ -212,7 +212,7 @@
 						echo "<button type=\"submit\" name=\"jobStatus\" value=\"$numJOB\">Delete entries for $numJOB</button>";
 					echo "</form>";
 				}
-			echo "<button><a href=\"Index.php\">Logout</a> </button>";
+			echo "<button><a href=\"index.php\">Logout</a> </button>";
 			echo "</aside>";
 			
 		}
