@@ -1,3 +1,4 @@
+<!--Standard Meta Tags-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,14 @@
     <meta name="author" content="Tafadzwa Mudavanhu"/>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body><!--Start of body where menu.inc is the menu header-->
 <?php include_once("menu.inc"); ?>
     <h1 class='h2'>Job Application Confirmation</h1>
     <div class="sec">
+<!--starting of the div classified as "sec" to section out the content of the page, so in CSS, styling can be done easier-->
     <?php
 $Skills = "";
+/*The settings.php will connect this processEOI.php to the mySql database*/
 require_once('settings.php');
 $sqlCreateTable = "CREATE TABLE IF NOT EXISTS eoi (
     idEOI INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,7 +33,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS eoi (
     txtOtherSkills TEXT,
     txtStatus ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
 )";
-
+/*This will create a new table if one doesnt already exist*/
 if (mysqli_query($conn, $sqlCreateTable)) {
 } else {
     echo "Error creating EOI table: " . mysqli_error($conn);
@@ -43,6 +46,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     header('Location: apply.php');
     exit;
 }
+/*This makes sure that this PHP cant be accessed through url only through apply.php*/
 $Reference_Number = $_POST["Reference_Number"];
 $First_Name = $_POST["First_Name"];
 $Last_Name = $_POST["Last_Name"];
@@ -60,7 +64,7 @@ $email = $_POST["email"];
 $Phone_Number = $_POST["Phone_Number"];
 $other = $_POST["other"];
 $link = $_SERVER["HTTP_REFERER"];
-
+/*This gets all the variables from the Apply.php and posts it so it can be used in this php*/
 $selectedSkills = [];
 
 if (isset($_POST["Skills"]) && in_array("Html", $_POST["Skills"])) $selectedSkills[] = "Html";
@@ -74,9 +78,9 @@ if (isset($_POST["Skills"]) && in_array("Other Skills", $_POST["Skills"])) $sele
 if (!empty($selectedSkills)) {
     $Skills = implode(", ", $selectedSkills);
 } else {
-    $Skills = ""; // Set an empty string if no skills are selected
+    $Skills = ""; 
 }
-
+/*This is an array created for selected skills so they can all be posted*/
 
 echo "<table>
 <tr>
@@ -110,7 +114,7 @@ echo "<table>
     <td>$other</td>
 </tr>
 </table>";
-
+/*This echos the data the user entered in the table */
 function sanitise_input($data)
 {
     $data = trim($data);
@@ -118,6 +122,7 @@ function sanitise_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+/*This sanitises the data */
 $valid_postcodes = array(
     "NSW" => range(2000, 2999),
     "VIC" => range(3000, 3999), 
@@ -128,7 +133,7 @@ $valid_postcodes = array(
     "NT" => range("0800", "0999"),
     "ACT" => range(2600, 2920)
 );
-
+/*This array is created for the postcodes so it can be matched to the states */
 $errMsg = "";
 if ($Reference_Number == "") {
     $errMsg .= "<p>You must enter the Reference Number.</p>";
@@ -167,6 +172,7 @@ $today = new DateTime();
 $inputDate = new DateTime($Date_of_Birth);
 $ageInterval = $inputDate->diff($today);
 $age = $ageInterval->y;
+/*This validates so the users age isnt outside the range of 15 to 80 */
 
 if ($age < $minAge || $age > $maxAge) {
     $errMsg.= "Invalid age range. You must be between $minAge and $maxAge years old.";
@@ -216,11 +222,12 @@ if (!preg_match("/^[\d]{8,12}$/", $Phone_Number)) {
 if (!in_array($Postcode, $valid_postcodes[$State])) {
     $errMsg .= "<p>The Postcode entered does not match the selected State</p>";
 }
-
+/*This makes sure that postcodes match the state that was selected */
 if (isset($_POST['Skills']) && in_array("Other Skills", $_POST['Skills']) && empty($_POST['other'])) {
     $errMsg .= "<p>Please specify your other skills.</p>";
 }
-
+/*This verifies that the other skills text area has been used if the other skills checkboxed been checked. */
+/*All of this is server-side validations, making sure nothing is left empty and lots more, and if the input doesnt pass the requirements the "$errMsg" will be echoed to the user */
 if ($errMsg != "") {
     echo "<h2>There are errors. Please enter all the required fields correctly.</h2>";
     echo $errMsg;
@@ -252,7 +259,7 @@ if ($errMsg != "") {
     $Phone_Number = mysqli_real_escape_string($conn, $Phone_Number);
     $Skills = mysqli_real_escape_string($conn, $Skills);
     $other = mysqli_real_escape_string($conn, $other);
-
+/*If there are errors the EOI wont be submitted to the mySQL database table, when no errors are present it will be submitted to the Database with sanitised data.*/
     $status = 'New';
     $sql = "INSERT INTO eoi (numJob, txtFname, txtLname, txtBirthDate, txtGender, txtAddress, txtState, numPostcode, txtEmail, txtPhone, lstSkills, txtOtherSkills, txtStatus) VALUES ('$Reference_Number', '$First_Name', '$Last_Name', '$Date_of_Birth', '$Gender', '$Street_Address, $Suburb_Town', '$State', '$Postcode', '$email', '$Phone_Number', '$Skills', '$other', '$status')";
     if (mysqli_query($conn, $sql)) {
@@ -265,6 +272,7 @@ if ($errMsg != "") {
 ?>
 </div>
 <?php include_once("footer.inc"); ?>
+<!--The footer for the page will be from the footer.inc-->
 </body>
 </html>
 
